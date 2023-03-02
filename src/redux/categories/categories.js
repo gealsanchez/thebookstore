@@ -14,6 +14,7 @@ export function checkStatus() {
 export default function categoriesSlice(state = initialState, action) {
   switch (action.type) {
     case CHECK_STATUS:
+      // eslint-disable-next-line
       return window.alert(action.payload);
     default:
       return state;
