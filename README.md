@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>BookStore</b></h3>
+<h3><b>BookStore</b></h3>
 
 </div>
 
@@ -34,6 +34,7 @@
 
 **BookStore** This project stores the name and the author of a book. When the user logs can update and delete any book in the API based on its code. Easily add & remove books from a list.
 
+
 ## 🛠 Built With <a name="built-with"></a>
 
  - HTML
@@ -56,6 +57,7 @@
 - **Single Page Application**
 - **Stores the name and the author of a book**
 - **Can update and delete any book in the API**
+- **Add & remove books from a list**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
