@@ -1,29 +1,55 @@
-const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import BookSrvc from '../../services/BookSrvc';
 
 const initialState = {
-  books: [
-    { id: 1, title: 'Book 1', author: 'Author 1' },
-    { id: 2, title: 'Book 2', author: 'Author 2' },
-    { id: 3, title: 'Book 3', author: 'Author 3' },
-  ],
+  books: [],
 };
 
-export function addBook(book) {
-  return { type: ADD_BOOK, book };
-}
+const fetchBooks = createAsyncThunk(
+  'books/fetchBooks',
+  async () => {
+    const { data } = await BookSrvc.getSrvc();
+    return Object.keys(data).map((key) => ({ ...data[key][0], item_id: key }));
+  },
+);
 
-export function removeBook(book) {
-  return { type: REMOVE_BOOK, book };
-}
+const addBook = createAsyncThunk(
+  'books/addBook',
+  async (Book) => {
+    const response = await BookSrvc.addSrvc(Book);
+    return response.data;
+  },
+);
 
-export default function booksSlice(state = initialState, action) {
+const deleteBook = createAsyncThunk(
+  'books/deleteBook',
+  async (id) => {
+    await BookSrvc.deleteSrvc(id);
+    return id;
+  },
+);
+
+const booksSlice = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return { ...state, books: [...state.books, action.book] };
-    case REMOVE_BOOK:
-      return { ...state, books: state.books.filter((b) => b !== action.book) };
+    case 'books/fetchBooks/fulfilled':
+      return {
+        ...state,
+        books: action.payload,
+      };
+    case addBook.fulfilled:
+      return {
+        ...state,
+        books: [...state.books, action.payload],
+      };
+    case deleteBook.fulfilled:
+      return {
+        ...state,
+        books: state.books.filter((book) => book.id !== action.payload),
+      };
     default:
       return state;
   }
-}
+};
+
+export { addBook, deleteBook, fetchBooks };
+export default booksSlice;
