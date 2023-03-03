@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>Bookstore</b></h3>
+<h3><b>BookStore</b></h3>
 
 </div>
 
@@ -30,9 +30,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math-Magicians <a name="about-project"></a>
+# 📖 BookStore <a name="about-project"></a>
 
-**Bookstore* is a Single Page Application (SPA), built with React, that allows users to store the name and the author of a book. Easily add & remove books from a list.
+**BookStore** This project stores the name and the author of a book. When the user logs can update and delete any book in the API based on its code. Easily add & remove books from a list.
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -55,13 +56,14 @@
 
 - **Single Page Application**
 - **Stores the name and the author of a book**
+- **Can update and delete any book in the API**
 - **Add & remove books from a list**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://gealsanchez.github.io/thebookstore)
+- [Coming soon]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,7 +122,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Categories**
+- **Bookstore API as backend**
+- **Use fetch or axios with createAsyncThunk to make API calls**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,4 +156,3 @@ This project is [MIT](./LICENSE) licensed.
 _NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
