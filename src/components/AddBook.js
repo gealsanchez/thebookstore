@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBook, fetchBooks } from '../redux/books/books';
 
 function AddBook() {
   const dispatch = useDispatch();
@@ -14,14 +14,18 @@ function AddBook() {
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newBook = {
-      id: v4(),
+      item_id: v4(),
       title: state.title,
       author: state.author,
+      category: '',
     };
-    dispatch(addBook(newBook));
+
+    await dispatch(addBook(newBook));
+    await dispatch(fetchBooks());
+
     setState({ title: '', author: '' });
   };
 
@@ -29,8 +33,8 @@ function AddBook() {
     <div>
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Title" name="title" onChange={handleChange} />
-        <input type="text" placeholder="Author" name="author" onChange={handleChange} />
+        <input type="text" placeholder="Title" value={state.title} name="title" onChange={handleChange} />
+        <input type="text" placeholder="Author" value={state.author} name="author" onChange={handleChange} />
         <button type="submit">Add Book</button>
       </form>
     </div>
